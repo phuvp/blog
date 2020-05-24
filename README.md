@@ -2,4 +2,4 @@
 
 
 
-design inspiration taken from https://andytrattner.com
+Design inspiration taken from https://andytrattner.com
