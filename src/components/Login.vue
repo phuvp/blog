@@ -57,7 +57,7 @@ class Login {
     if(this.input.username != "" && this.input.password != "") {
       if(this.input.username == "admin" && this.input.password == "admin") {
         this.$emit("authenticated", true);
-        this.$router.replace({ path: "Opener" });
+        this.$router.replace({ path: "/opener" });
       } else {
         console.log("The username and / or password is incorrect");
         }

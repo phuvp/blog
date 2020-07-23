@@ -1,8 +1,17 @@
 <template>
+  <!-- <div v-if=authenticated id="app"> -->
   <div id="app">
-    <router-view class="main" />
-    <nav>
-      <span>
+
+    <!-- <div id="nav">
+         <router-link v-if="authenticated" to="/login" v-on:click.native="logout()" replace>Logout</router-link>
+         </div> -->
+    <router-view class="main" @authenticated="setAuthenticated" />
+
+    <div v-if="authenticated" id="app">
+      <router-link to="/login" v-on:click.native="logout()" replace>Logout</router-link>
+      <!-- <router-view class="main" /> -->
+      <nav>
+        <span>
         <router-link to="/archive">
           Archive
         </router-link>
@@ -22,7 +31,8 @@
           Random
         </router-link>
       </span>
-    </nav>
+      </nav>
+  </div>
   </div>
 </template>
 
@@ -41,13 +51,17 @@ export default {
   },
   mounted() {
     if(!this.authenticated) {
-      console.log(this);
+      console.log('catbird');
+      console.log(this.authenticated);
+
       this.$router.replace({ path: "login" });
     }
   },
   methods: {
     setAuthenticated(status) {
       this.authenticated = status;
+      console.log('dogbird');
+      console.log(this.authenticated);
     },
     logout() {
       this.authenticated = false;
@@ -98,4 +112,7 @@ html, body {
     flex: 1;
   }
 }
+
+
+
 </style>
