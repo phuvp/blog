@@ -26,6 +26,36 @@
   </div>
 </template>
 
+
+<script>
+export default {
+  name: 'App',
+  data() {
+    return {
+      authenticated: false,
+      mockAccount: {
+        username: "admin",
+        password: "admin"
+      }
+    }
+  },
+  mounted() {
+    if(!this.authenticated) {
+      console.log(this);
+      this.$router.replace({ path: "login" });
+    }
+  },
+  methods: {
+    setAuthenticated(status) {
+      this.authenticated = status;
+    },
+    logout() {
+      this.authenticated = false;
+    }
+  }
+}
+</script>
+
 <style lang="scss">
 html, body {
   margin: 0;

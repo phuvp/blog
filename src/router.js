@@ -5,5 +5,6 @@ export default new VueRouter({
   routes: [
     { path: '/archive', component: () => import('@/components/Archive') },
     { path: '*', component: () => import('@/components/Opener') },
+    { path: '/login', component: () => import('@/components/Login') },
   ],
 });
